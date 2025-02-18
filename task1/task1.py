@@ -3,9 +3,7 @@ import socket
 import csv
 
 def my_ping(host):
-    ip_address = socket.gethostbyname(host)
-    rtt = ping(host)
-    return ip_address, rtt
+    return socket.gethostbyname(host), ping(host)
 
 hosts = ['google.com', 'yandex.ru', 'youtube.com', 'facebook.com', 'wikipedia.org', 
         'amazon.com', 'reddit.com', 'vk.com', 'pinterest.com', 'ebay.com']
