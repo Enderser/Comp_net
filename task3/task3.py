@@ -1,11 +1,13 @@
+import csv
+import time
+import re
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import time
-import csv
-import re
+
 
 base_url = 'https://www.wildberries.ru/catalog/elektronika/igry-i-razvlecheniya/aksessuary/garnitury'
 mx_pages = int(input("Сколько страниц парсим?\n"))
@@ -27,7 +29,7 @@ for page in range(1, mx_pages + 1):
     products = driver.find_elements(By.CSS_SELECTOR, ".product-card__link")
     if not products:
         print("Тут ничего нет, можно отдыхать")
-        break
+        continue
     product_links = [product.get_attribute("href") for product in products]
     for link in product_links:
         driver.get(link)
