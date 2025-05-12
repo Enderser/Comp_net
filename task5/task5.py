@@ -1,5 +1,6 @@
-from flask import Flask, request, jsonify
-from db import init_db, add_url, get_urls
+from flask import Flask, jsonify, request
+
+from db import add_url, get_urls, init_db
 
 app = Flask(__name__)
 
