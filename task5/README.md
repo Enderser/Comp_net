@@ -30,11 +30,12 @@ p.s. Вырезать парсер, первый метод с url теперь 
 	- db на порту 5432.
 	- my-app на порту 8080.
 6. Работа приложения
+   
 	1. Добавить URL:
 		```
 		curl -X POST "http://localhost:8080/urls/" -H "Content-Type: application/json" -d '{"url": "https://example.com"}'
 		```
-	Ожидаемый ответ:
+		Ожидаемый ответ:
 		```
 		{"message": "URL added", "url": "https://example.com"}
 		```
@@ -42,7 +43,7 @@ p.s. Вырезать парсер, первый метод с url теперь 
 		```
 		curl "http://localhost:8080/urls/"
 		```
-	Ожидаемый ответ (добавлен один URL):
+		Ожидаемый ответ (добавлен один URL):
 		```
 		[{"id": 1, "url": "https://example.com"}]
 		```
@@ -50,11 +51,11 @@ p.s. Вырезать парсер, первый метод с url теперь 
 		```
 		curl -X POST "http://localhost:8080/urls/" -H "Content-Type: application/json" -d '{"url": "https://example.com"}'
 		```
-	Ожидаемый ответ:
+		Ожидаемый ответ:
 		```
 		{"error": "URL already exists"}
 		```
-7. Очистка
+8. Очистка
 	```
 	docker stop my-app db
 	docker rm my-app db
