@@ -12,11 +12,8 @@ from sqlalchemy import Column, Integer, String, create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker
 import uvicorn
 
-DATABASE_URL = "postgresql://wb_user:wb_pass@localhost:5432/wb_db"
-
-# Настройка базы данных
 Base = declarative_base()
-engine = create_engine(DATABASE_URL)
+engine = create_engine("postgresql://wb_user:wb_pass@localhost:5432/wb_db")
 SessionLocal = sessionmaker(bind=engine)
 
 class Product(Base):
@@ -31,10 +28,10 @@ class Product(Base):
 
 Base.metadata.create_all(bind=engine)
 
-# Инициализация FastAPI
+
 app = FastAPI()
 
-# Функция парсинга
+
 def parse_wb(base_url: str, max_pages: int = 1):
     options = webdriver.FirefoxOptions()
     options.add_argument("--headless")
